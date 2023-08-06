@@ -9,3 +9,6 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+EDAMAM_API_KEY: "a596b5042e5e50ce59dd393079d0f35c"
+EDAMAM_APP_ID: "9e1241b1"

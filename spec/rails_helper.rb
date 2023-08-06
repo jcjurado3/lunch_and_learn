@@ -5,7 +5,9 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
-
+require 'faraday'
+require 'json'
+require 'webmock/rspec'
 require 'simplecov'
   SimpleCov.start
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -71,4 +73,16 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  config.hook_into :webmock
+  config.default_cassette_options = { re_record_interval: 1.seconds }
+  config.filter_sensitive_data('LEGISCAN_KEY') { ENV['LEGISCAN_KEY'] }
+  config.filter_sensitive_data('STATES_KEY') { ENV['STATES_KEY'] }
+  
+
+  config.default_cassette_options = { :allow_playback_repeats => true }
+  config.configure_rspec_metadata!
 end

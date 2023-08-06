@@ -6,15 +6,27 @@ class RecipeSearchFacade
   def recipes
     recipe_search_result = RecipeService.new(@params).recipe_by_query
 
-    recipe_search_result[:hits][0].each do |recipe_data|
-      recipe_hash = { id: null, 
-        title: recipe_data[1][:label],
-        url: recipe_data[1][:uri],
+    recipe_result = recipe_search_result[:hits][0]
+
+    recipe_cleaned = recipe_data_clean_up(recipe_result)
+
+    recipe = ApiRecipe.new(recipe_cleaned)
+    # recipe = recipe_search_result[:hits][0].map do |recipe_data|
+    #   clean_data = recipe_data_clean_up(recipe_data)
+    #   recipe = ApiRecipe.new(clean_data, @params)
+    #   recipe
+    # end
+    
+  end
+
+  private
+  def recipe_data_clean_up(recipe_data)
+    # require 'pry'; binding.pry
+    recipe_hash = {
+        title: recipe_data[:recipe][:label],
+        url: recipe_data[:recipe][:uri],
         country: @params[:country],
-        image: recipe_data[1][:image]
+        image: recipe_data[:recipe][:image]
       }
-      ApiRecipe.new(recipe_hash)
-    end
-    require 'pry'; binding.pry
   end
 end

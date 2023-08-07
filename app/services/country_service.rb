@@ -1,4 +1,4 @@
-class CountrySearchService
+class CountryService
 
   def get_random_country
     response = get_url

@@ -8,12 +8,11 @@ class CountrySearchFacade
     country_hash = {
       country: country.country
     }
-    # require 'pry'; binding.pry
-    random = RecipeSearchFacade.new(country_hash).recipes
 
+    random = RecipeSearchFacade.new(country_hash).recipes
   end
 
   def service
-    CountrySearchService.new
+    CountryService.new
   end
 end

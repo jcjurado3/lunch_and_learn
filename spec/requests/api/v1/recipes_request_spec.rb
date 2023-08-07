@@ -38,7 +38,7 @@ RSpec.describe "Recipe Search Endpoint" do
         expect(response).to be_successful
         expect(response.status).to eq(200)
         expect(recipe_data).to have_key(:data)
-        expect(recipe_data[:data][0]).to have_key(:type)
+        # expect(recipe_data[:data]).to have_key(:type)
         expect(recipe_data[:data][0][:type]).to be_a(String)
         expect(recipe_data[:data][0][:type]).to eq("recipe")
 

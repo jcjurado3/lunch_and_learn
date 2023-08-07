@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe RecipeService do
+RSpec.describe RecipeService do
   describe "instance methods" do
     describe "#recipe_by_query" do
       it "returns recipe data based on country query", :vcr do

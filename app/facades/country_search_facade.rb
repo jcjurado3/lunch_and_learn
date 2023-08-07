@@ -12,6 +12,11 @@ class CountrySearchFacade
     random = RecipeSearchFacade.new(country_hash).recipes
   end
 
+  def get_capital_city(country)
+    city_request_data = service.get_capital_city(country)
+    capital_city = city_request_data[0][:capital].first
+  end
+
   def service
     CountryService.new
   end

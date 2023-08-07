@@ -23,8 +23,6 @@ RSpec.describe "Recipe Search Endpoint" do
         expect(recipe_data[:data][0][:attributes]).to have_key(:url)
         expect(recipe_data[:data][0][:attributes]).to have_key(:country)
         expect(recipe_data[:data][0][:attributes]).to have_key(:image)
-
-
       end
 
       it "returns data when no country is given", :vcr do

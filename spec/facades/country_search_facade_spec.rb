@@ -14,5 +14,14 @@ RSpec.describe CountrySearchFacade do
       end
     end
     
+    describe "#get_random_country_only", :vcr do
+      it "returns random country" do
+        country = CountrySearchFacade.new.random_country_only
+
+        expect(country).to have_key(:country)
+        expect(country[:country]).to be_a(String)
+
+      end
+    end
   end
 end

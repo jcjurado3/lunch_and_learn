@@ -47,6 +47,9 @@ RSpec.describe "Air Quality Endpoint" do
         expect(capital_data[:data]).to have_key(:city)
         expect(capital_data[:data]).to have_key(:attributes)
 
+        expect(capital_data[:data][:type]).to eq("air_quality")
+
+
         expect(capital_data[:data][:city]).to eq("Paris")
 
         expect(capital_data[:data][:attributes]).to have_key(:aqi)
@@ -92,5 +95,23 @@ RSpec.describe "Air Quality Endpoint" do
 
       end
     end
+
+    describe "sad path" do
+      it "no country is passed, return air quality data from random country", :vcr do
+        query_params = {
+          country: "" 
+        }
+
+        get "/api/v1/air_quality", params: query_params
+
+        capital_data = JSON.parse(response.body, symbolize_names: :true)
+        expect(response).to be_successful
+        expect(response.status).to eq(200)
+        expect(capital_data).to have_key(:data)
+        expect(capital_data[:data]).to have_key(:type)
+        expect(capital_data[:data]).to have_key(:city)
+        expect(capital_data[:data]).to have_key(:attributes)
+      end
+    end 
   end
 end

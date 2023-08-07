@@ -17,6 +17,17 @@ class CountrySearchFacade
     capital_city = city_request_data[0][:capital].first
   end
 
+  def random_country_only
+    country_results = service.get_random_country
+    results = country_results.map do |country|
+      ApiCountry.new(country)
+    end
+    country = results.sample
+    country_hash = {
+      country: country.country
+    }
+  end
+
   def service
     CountryService.new
   end

@@ -23,6 +23,8 @@ class CountrySearchFacade
       ApiCountry.new(country)
     end
     country = results.sample
+
+    country.country = country.country.split.join('%20')
     country_hash = {
       country: country.country
     }

@@ -1,5 +1,5 @@
 class ApiCountry
-  attr_reader :country
+  attr_accessor :country
 
   def initialize(data)
 

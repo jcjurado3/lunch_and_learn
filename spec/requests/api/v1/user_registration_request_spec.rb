@@ -61,6 +61,23 @@ RSpec.describe "User Registration Endpoint" do
         query_params = {
           name: "Odell",
           email: "goodboy@ruffruff.com",
+          password: "treats4lyf",
+          password_confirmation: "tretslyf" 
+        }
+        headers = { 'CONTENT_TYPE' => 'application/json' }
+
+        post "/api/v1/users", headers: headers, params: JSON.generate(query_params)
+
+        user_data = JSON.parse(response.body, symbolize_names: :true)
+
+        expect(response).to_not be_successful
+        expect(response.status).to eq(422)
+      end
+
+      it "error message when user password doesnt match" do
+        query_params = {
+          name: "Odell",
+          email: "goodboy@ruffruff.com",
           password_confirmation: "treatslyf" 
         }
         headers = { 'CONTENT_TYPE' => 'application/json' }

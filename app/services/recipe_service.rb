@@ -11,6 +11,7 @@ class RecipeService
         req.params['app_key'] = ENV["EDAMAM_API_KEY"]
         req.params['app_id'] = ENV["EDAMAM_APP_ID"]
         req.params['q'] = @country
+        
       end
       json = JSON.parse(response.body, symbolize_names: true)
   end

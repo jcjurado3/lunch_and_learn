@@ -13,7 +13,6 @@ RSpec.describe "Learning Resources Search Endpoint" do
         expect(response).to be_successful
         expect(response.status).to eq(200)
         expect(learning_resources_data).to have_key(:data)
-        # require 'pry'; binding.pry
         expect(learning_resources_data[:data]).to have_key(:type)
         expect(learning_resources_data[:data][:type]).to be_a(String)
         expect(learning_resources_data[:data][:type]).to eq("learning_resource")

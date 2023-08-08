@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       render json: UserSerializer.new(user), status: 201
     else
-      ErrorUserSerializer.new("Bad Credentials", 404)
+      render json: ErrorUserSerializer.new(user.errors.full_messages.join(", "), "Not Created", "422").serialized_json, status: 422
     end
   end
 

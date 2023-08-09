@@ -25,7 +25,50 @@ RSpec.describe "Favorites Endpoint" do
       expect(user[:success]).to eq("Favorite added successfully")
       end
 
-      it ""
+      it "returns users favorites" do
+        user = User.create!(name: "Grant", email: "goodboy@ruffruff.com", password: "treats4lyf", password_confirmation: "treats4lyf")
+
+        fav1 = Favorite.create!(recipe_title: "Recipe: Egyptian Tomato Soup",
+                                recipe_link: "http://www.thekitchn.com/recipe-egyptian-tomato-soup-weeknight....",
+                                country: "egypt",
+                                user_id: user.id )
+
+        fav = Favorite.create(recipe_title: "Crab Fried Rice (Khaao Pad Bpu)",
+                              recipe_link: "https://www.tastingtable.com/.....",
+                              country: "thailand",
+                              user_id: user.id )
+                              
+        get "/api/v1/favorites?api_key=#{user.api_key}"
+
+        expect(response).to be_successful
+        expect(response.status).to eq(200)
+  
+        fav_data = JSON.parse(response.body, symbolize_names: true)
+  
+        expect(fav_data).to have_key(:data)
+        expect(fav_data[:data]).to be_an(Array)
+  
+        expect(fav_data[:data][0]).to have_key(:id)
+        expect(fav_data[:data][0][:id]).to be_a(String)
+  
+        expect(fav_data[:data][0]).to have_key(:type)
+        expect(fav_data[:data][0][:type]).to be_a(String)
+        expect(fav_data[:data][0][:type]).to eq("favorite")
+  
+        expect(fav_data[:data][0]).to have_key(:attributes)
+        expect(fav_data[:data][0][:attributes]).to be_a(Hash)
+        expect(fav_data[:data][0][:attributes]).to have_key(:country)
+        expect(fav_data[:data][0][:attributes][:country]).to be_a(String)
+  
+        expect(fav_data[:data][0][:attributes]).to have_key(:recipe_link)
+        expect(fav_data[:data][0][:attributes][:recipe_link]).to be_a(String)
+  
+        expect(fav_data[:data][0][:attributes]).to have_key(:recipe_title)
+        expect(fav_data[:data][0][:attributes][:recipe_title]).to be_a(String)
+  
+        expect(fav_data[:data][0][:attributes]).to have_key(:created_at)
+        expect(fav_data[:data][0][:attributes][:created_at]).to be_a(String)
+      end
     end
 
     describe "sad path" do

@@ -1,34 +1,9 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jimmyjurado/Turing/3mod/projects/final_project/lunch_and_learn/app/controllers/api/v1/users_controller.rb": {
-        "lines": [
-          1,
-          1,
-          4,
-          4,
-          1,
-          null,
-          3,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          4,
-          null,
-          null
-        ]
-      },
-      "/Users/jimmyjurado/Turing/3mod/projects/final_project/lunch_and_learn/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
       "/Users/jimmyjurado/Turing/3mod/projects/final_project/lunch_and_learn/app/models/user.rb": {
         "lines": [
+          1,
           1,
           1,
           1,
@@ -47,7 +22,43 @@
           null
         ]
       },
-      "/Users/jimmyjurado/Turing/3mod/projects/final_project/lunch_and_learn/app/serializers/user_serializer.rb": {
+      "/Users/jimmyjurado/Turing/3mod/projects/final_project/lunch_and_learn/app/controllers/api/v1/favorites_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          2,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/jimmyjurado/Turing/3mod/projects/final_project/lunch_and_learn/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/jimmyjurado/Turing/3mod/projects/final_project/lunch_and_learn/app/models/favorite.rb": {
         "lines": [
           1,
           1,
@@ -55,6 +66,18 @@
           1,
           1,
           1,
+          null
+        ]
+      },
+      "/Users/jimmyjurado/Turing/3mod/projects/final_project/lunch_and_learn/app/serializers/favorites_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
           null,
           null,
           null
@@ -65,14 +88,14 @@
           1,
           null,
           1,
-          3,
-          3,
-          3,
+          1,
+          1,
+          1,
           null,
           null,
           1,
           null,
-          3,
+          1,
           null,
           null,
           null,
@@ -86,6 +109,6 @@
         ]
       }
     },
-    "timestamp": 1691515487
+    "timestamp": 1691545909
   }
 }

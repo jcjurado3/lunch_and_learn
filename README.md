@@ -37,6 +37,11 @@ To fully utilize the application, you'll need to obtain API keys from:
 1. YouTube API [here](https://developers.google.com/youtube/v3/getting-started)
 1. Unsplash API [here](https://unsplash.com/developers)
 
+# Testing
+
+`bundle exec rspec` will run the entire test suite. *All tests passing at time of writing.*
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Endpoints
 <details>
 <summary>GET <code>/api/v1/recipes?country=''</code></summary>

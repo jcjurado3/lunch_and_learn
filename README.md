@@ -160,7 +160,7 @@ To fully utilize the application, you'll need to obtain API keys from:
 <br>
 
 <details>
-<summary>GET <code>/api/v1/favorites?api_key=jgn983hy48thw9begh98h4539h4''</code></summary>
+<summary>GET <code>/api/v1/favorites?api_key=''</code></summary>
 <br>
 
     {

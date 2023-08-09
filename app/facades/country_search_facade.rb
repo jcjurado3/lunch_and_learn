@@ -1,6 +1,7 @@
 class CountrySearchFacade
   def get_random_country
     country_results = service.get_random_country
+
     results = country_results.map do |country|
       ApiCountry.new(country)
     end
